@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  linkedin-scheduler:
+    build: .
+    container_name: linkedin-scheduler
+    ports:
+      - "8000:8000"
+    environment:
+      - LI_CLIENT_ID=${LI_CLIENT_ID}
+      - LI_CLIENT_SECRET=${LI_CLIENT_SECRET}
+      - LI_ACCESS_TOKEN=${LI_ACCESS_TOKEN}
+      - LI_PERSON_URN=${LI_PERSON_URN}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s

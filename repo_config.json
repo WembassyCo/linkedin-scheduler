@@ -1,0 +1,9 @@
+{
+  "name": "linkedin-scheduler",
+  "description": "Dockerized LinkedIn content scheduling service",
+  "private": false,
+  "has_issues": true,
+  "has_wiki": false,
+  "has_projects": false,
+  "auto_init": false
+}
